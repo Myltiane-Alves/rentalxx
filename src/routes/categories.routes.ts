@@ -4,7 +4,6 @@ import { CategoriesRepository } from "../repositories/CategoriesRepository";
 
 
 const categoriesRoutes = Router();
-
 const categoriesRepository = new CategoriesRepository();
 
 categoriesRoutes.post('/', (request, response) => {
