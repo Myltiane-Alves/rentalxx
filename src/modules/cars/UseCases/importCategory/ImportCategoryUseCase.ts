@@ -1,8 +1,8 @@
+import csvParse from 'csv-parse';
+import fs from 'fs';
 /*
 import { inject, injectable } from 'tsyringe';
 
-import csvParse from 'csv-parse';
-import fs from 'fs';
 import { ICategoriesRepository } from '@modules/cars/repositories/ICategoriesRepository';
 
 interface IImportCategory {
@@ -62,7 +62,14 @@ export { ImportCategoryUseCase };*/
 
 class ImportCategoryUseCase {
     execute(file: Express.Multer.File): void {
-        console.log(file)
+        const stream = fs.createReadStream(file.path);
+
+        const parseFile = csvParse();
+
+        stream.pipe(parseFile);
+        parseFile.on('data', async (line) => {
+            console.log(line)
+        })
     }
 }
 
