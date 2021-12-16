@@ -1,23 +1,19 @@
-import { ICategoriesRepository } from '@modules/cars/repositories/ICategoriesRepository';
+import { ICategoriesRepository } from '../../repositories/ICategoriesRepository';
 import csvParse from 'csv-parse';
 import fs from 'fs';
+
 
 interface IImportCategory {
     name: string;
     description: string;
 }
 
-/*
-import { inject, injectable } from 'tsyringe';
-
-import { ICategoriesRepository } from '@modules/cars/repositories/ICategoriesRepository';
 
 
-@injectable()
+
+
 class ImportCategoryUseCase {
-    constructor(
-     @inject('CategoriesRepository')    
-    private categoriesRepository: ICategoriesRepository){}
+    constructor(private categoriesRepository: ICategoriesRepository){}
   
     loadCategories(file: Express.Multer.File): Promise<IImportCategory[]> {
       return new Promise((resolve, reject) => {
@@ -50,36 +46,14 @@ class ImportCategoryUseCase {
         categories.map(async(category) => {
             const { name, description } = category;
             
-            const existCategory = await this.categoriesRepository.findByName(name);
+            const existCategory =  this.categoriesRepository.findByName(name);
             if(!existCategory){
-                await this.categoriesRepository.create({
+                 this.categoriesRepository.create({
                   name,
                   description,  
                 })
             }
         })
-    }
-}
-
-export { ImportCategoryUseCase };*/
-
-class ImportCategoryUseCase {
-    constructor(private categoriesRepository: ICategoriesRepository) {}
-
-    loadCategories(file: Express.Multer.File) {
-        const stream = fs.createReadStream(file.path);
-    
-        const parseFile = csvParse();
-    
-        stream.pipe(parseFile);
-    
-        parseFile.on('data', async (line) => {
-            console.log(line)
-        })
-
-    }
-
-    execute(file: Express.Multer.File): void {
     }
 }
 
