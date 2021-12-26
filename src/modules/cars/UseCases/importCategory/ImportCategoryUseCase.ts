@@ -1,4 +1,4 @@
-import  csvParse  from 'csv-parse/sync';
+import  csvParse  from 'csv-parse';
 import fs from 'fs';
 
 import { ICategoriesRepository } from '../../repositories/ICategoriesRepository';
