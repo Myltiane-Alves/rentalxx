@@ -1,4 +1,4 @@
 module.exports = {
-    "tabWidth": 1,
+    "tabWidth": 0.5,
     singleQuote: false,
 };
