@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "target": "es5",                                    
-    "rootDir": "./",
     "module": "commonjs",  
-    "strict": false,  
+    "rootDir": "./",
     "baseUrl": "./src",
+    "strict": false,  
     "paths": {
         "@modules/*": ["modules/*"],
         "@config/*": ["config/*"],
