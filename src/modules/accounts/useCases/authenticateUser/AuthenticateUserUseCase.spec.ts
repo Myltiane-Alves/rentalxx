@@ -3,7 +3,8 @@ import { ICreateUserDTO } from "@modules/accounts/dtos/ICreateUserDTO";
 import { UsersRepositoryInMemory } from "@modules/accounts/repositories/in-memory/UsersRepositoryInMemory"
 
 import { CreateUserUserCase } from "../createUser/CreateUserUseCase";
-import { AuthenticateUserUseCase } from "./AuthenticateUserUseCase";
+import { AuthenticateUserUseCase } from './AuthenticateUserUseCase';
+
 
 let authenticateUserUseCase:  AuthenticateUserUseCase;
 let usersRepositoryInMemory: UsersRepositoryInMemory;
@@ -30,7 +31,7 @@ describe("Authenticate User", () => {
         const result = await authenticateUserUseCase.execute({
             email: user.email,
             password: user.password
-        });
+        })
         
         expect(result).toHaveProperty("token")
     });
