@@ -12,7 +12,7 @@ describe("List Cars", () => {
     });
 
     it("should be able to list all available cars", async () => {
-       await carsRepositoryInMemory.create({
+       const car = await carsRepositoryInMemory.create({
            name: "Car1",
            description: "Car description",
            daily_rate: 110.0,
@@ -23,6 +23,7 @@ describe("List Cars", () => {
        });
        
         const cars = await listCarsUseCase.execute();
-        console.log(cars);
+        
+        expect(cars).toEqual([car]);
     });
 });
