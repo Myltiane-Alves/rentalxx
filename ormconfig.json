@@ -2,7 +2,7 @@
     "type": "postgres",
     "port": 5432,
     "host": "localhost", 
-    "username": "admin",
+    "username": "myltiane",
     "password": "12345",
     "database": "rentx", 
     "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
