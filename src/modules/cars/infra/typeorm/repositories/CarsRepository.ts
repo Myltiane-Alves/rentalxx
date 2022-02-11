@@ -54,14 +54,14 @@ class CarsRepository implements ICarsRepository {
             .where("available = :avalable", { available: true});
         
         if(brand) {
-            carsQuery.andWhere("c.brand = :brand", { brand });
+            carsQuery.andWhere("brand = :brand", { brand });
         }
 
         if(name) {
-            carsQuery.andWhere("c.name = :name", { name });
+            carsQuery.andWhere("name = :name", { name });
         }
         if(brand) {
-            carsQuery.andWhere("c.category_id = :category_id", { category_id });
+            carsQuery.andWhere("category_id = :category_id", { category_id });
         }
 
         const cars = await carsQuery.getMany();
