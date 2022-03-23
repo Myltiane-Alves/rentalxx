@@ -1,9 +1,9 @@
 {
-    "type": "postgres",
+    "type": "mysql",
     "port": 5432,
     "host": "localhost", 
-    "username": "myltiane",
-    "password": "12345",
+    "username": "root",
+    "password": "95325414",
     "database": "rentx", 
     "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
     "entities": ["./src/modules/**/entities/*.ts"],
