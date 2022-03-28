@@ -5,12 +5,16 @@ import { Car } from "../entities/Car";
 
 
 class CarsRepository implements ICarsRepository {
-    
+
     private repository: Repository<Car>;
 
     constructor() {
         this.repository = getRepository(Car);
     }
+  updateAvailable(id: string, available: boolean): Promise<void> {
+    throw new Error("Method not implemented.");
+  }
+
 
     async create({
         brand,
@@ -50,13 +54,13 @@ class CarsRepository implements ICarsRepository {
 
     async findAvailable(
             brand?: string,
-            category_id?: string, 
+            category_id?: string,
             name?: string
         ): Promise<Car[]> {
         const carsQuery = await this.repository
             .createQueryBuilder("c")
             .where("available = :avalable", { available: true});
-        
+
         if(brand) {
             carsQuery.andWhere("brand = :brand", { brand });
         }
